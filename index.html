@@ -133,6 +133,6 @@
   <script src="js/vectorize.js"></script>
   <script src="js/skeletonify.js"></script>
   <script src="js/app.js"></script>
-  <script async src="https://docs.opencv.org/4.10.0/opencv.js" onload="onOpenCvReady()"></script>
+  <script async src="https://docs.opencv.org/4.10.0/opencv.js" onload="onOpenCvReady()" onerror="document.getElementById('status').textContent='Failed to load OpenCV.js. Check your internet connection.'"></script>
 </body>
 </html>

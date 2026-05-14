@@ -1,0 +1,6 @@
+numpy>=1.26.0
+opencv-contrib-python>=4.7.0
+pillow>=10.0
+svgwrite
+scikit-image
+scipy>=1.11.0

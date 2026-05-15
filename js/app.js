@@ -56,7 +56,7 @@ function matToBlob(mat) {
 // Process a single image, return result HTML
 // ============================================================
 async function processSingleImage(file, imgMat, index, options) {
-  const { dpiOverride, wantExtract, wantContour, wantSkeleton } = options;
+  const { dpiOverride, wantExtract, wantContour, wantSkeleton, wantOutline, outerOnly, ignoreEdge } = options;
   const fileName = file ? file.name : `capture_${index + 1}`;
   const baseName = fileName.replace(/\.[^.]+$/, "");
 
@@ -115,6 +115,19 @@ async function processSingleImage(file, imgMat, index, options) {
         "Stage 2: Skeleton SVG", null,
         `<div class="border rounded p-2 bg-white overflow-auto max-h-72">${svgStr}</div>`,
         url, `${baseName}_skeleton.svg`
+      ));
+    }
+
+    // Outline SVG
+    if (wantOutline) {
+      setStatus(`[${baseName}] Generating outline SVG...`);
+      const svgStr = outlineToSvg(imgOut, dpi, outerOnly, ignoreEdge);
+      const blob = new Blob([svgStr], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(blob);
+      card.appendChild(makeResultBlock(
+        `Stage 2: Outline SVG${outerOnly ? " (outer only)" : ""}`, null,
+        `<div class="border rounded p-2 bg-white overflow-auto max-h-72">${svgStr}</div>`,
+        url, `${baseName}_outline.svg`
       ));
     }
 
@@ -193,13 +206,16 @@ async function processUpload() {
   const wantExtract = document.getElementById("chkExtract").checked;
   const wantContour = document.getElementById("chkContour").checked;
   const wantSkeleton = document.getElementById("chkSkeleton").checked;
+  const wantOutline = document.getElementById("chkOutline").checked;
+  const outerOnly = document.getElementById("chkOuterOnly").checked;
+  const ignoreEdge = document.getElementById("chkIgnoreEdge").checked;
 
-  if (!wantExtract && !wantContour && !wantSkeleton) {
+  if (!wantExtract && !wantContour && !wantSkeleton && !wantOutline) {
     showError("Select at least one output option.");
     return;
   }
 
-  const options = { dpiOverride, wantExtract, wantContour, wantSkeleton };
+  const options = { dpiOverride, wantExtract, wantContour, wantSkeleton, wantOutline, outerOnly, ignoreEdge };
   const btn = document.getElementById("processBtn");
   btn.disabled = true;
 

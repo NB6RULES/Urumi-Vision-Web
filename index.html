@@ -903,6 +903,29 @@
                 </span>
                 Skeleton SVG
               </label>
+              <label class="seg">
+                <input type="checkbox" id="chkOutline" />
+                <span class="tick">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                </span>
+                Outline SVG
+              </label>
+            </div>
+            <div id="outlineOptions" class="outline-sub" style="display:none; margin-top:8px; display:none;">
+              <label class="seg" style="font-size:12px; padding:4px 10px;">
+                <input type="checkbox" id="chkOuterOnly" />
+                <span class="tick" style="width:12px; height:12px; border-radius:3px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                </span>
+                Outer boundaries only
+              </label>
+              <label class="seg" style="font-size:12px; padding:4px 10px;">
+                <input type="checkbox" id="chkIgnoreEdge" checked />
+                <span class="tick" style="width:12px; height:12px; border-radius:3px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                </span>
+                Ignore frame edge
+              </label>
             </div>
           </div>
         </div>
@@ -1134,6 +1157,11 @@
         fileInput.files = dt.files;
         fileInput.dispatchEvent(new Event('change'));
       }
+    });
+
+    // Show/hide "Outer only" toggle when Outline is checked
+    document.getElementById('chkOutline').addEventListener('change', (e) => {
+      document.getElementById('outlineOptions').style.display = e.target.checked ? '' : 'none';
     });
 
     // Keyboard activation for drop zone

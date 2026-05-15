@@ -554,6 +554,149 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
 
+    /* ── Design files card ─────────────────────────────── */
+    .design-section {
+      margin-top: 28px;
+    }
+    .design-section h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-mute);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+      padding-left: 4px;
+    }
+    .design-card {
+      background: var(--glass-strong);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 0.5px solid var(--hair);
+      border-radius: var(--radius-card);
+      box-shadow: 0 12px 32px -16px rgba(20,22,40,0.18), 0 0 0 0.5px rgba(0,0,0,0.04);
+      padding: 22px;
+    }
+    .design-card p.intro {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .design-dl {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, #ffffff, #f5f6fa);
+      border: 0.5px solid var(--hair);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+    }
+    .design-dl:hover {
+      background: #ffffff;
+      box-shadow: 0 4px 12px -4px rgba(20,22,40,0.12);
+      transform: translateY(-1px);
+    }
+    .design-dl:active { transform: translateY(0) scale(0.99); }
+    .design-dl .dl-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .design-dl .dl-icon svg { width: 18px; height: 18px; }
+    .design-dl .dl-icon.frame { background: linear-gradient(135deg, #e8f0fe, #d4e4fd); color: var(--blue); }
+    .design-dl .dl-icon.laser { background: linear-gradient(135deg, #fce8e6, #f8d0cc); color: #c5221f; }
+    .design-dl .dl-info { min-width: 0; }
+    .design-dl .dl-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .design-dl .dl-meta {
+      font-size: 11px;
+      color: var(--ink-faint);
+      margin-top: 1px;
+    }
+
+    /* ── Credits ─────────────────────────────────────── */
+    .credits-section {
+      margin-top: 28px;
+    }
+    .credits-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 0.5px solid var(--hair);
+      border-radius: var(--radius-card);
+      box-shadow: 0 8px 24px -12px rgba(20,22,40,0.12);
+      padding: 22px 24px;
+    }
+    .credits-card h3 {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-mute);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+    .credit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .credit-item {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .credit-item strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .credit-item a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .credit-item a:hover { text-decoration: underline; }
+    .credit-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .credit-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-mute);
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.55);
+      border: 0.5px solid var(--hair-soft);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .credit-links a:hover { background: rgba(255,255,255,0.9); color: var(--blue); }
+    .credit-links a svg { width: 12px; height: 12px; }
+    .credit-divider {
+      height: 0.5px;
+      background: var(--hair);
+      margin: 4px 0;
+    }
+
     /* ── Footer ──────────────────────────────────────── */
     .footnote {
       margin-top: 28px;
@@ -795,6 +938,92 @@
     <section id="results" class="results-wrap hidden" aria-live="polite">
       <h2>Results</h2>
       <div id="resultsContainer" class="space-y-5"></div>
+    </section>
+
+    <!-- Design Files -->
+    <section class="design-section">
+      <h2>Design Files</h2>
+      <div class="design-card">
+        <p class="intro">Print or laser-cut these SVG files to make your own ArUco scanner frame. Three sizes available.</p>
+        <div class="design-grid">
+          <a href="Python/design/small.svg" download="ArUco_Frame_Small_150x230mm.svg" class="design-dl">
+            <div class="dl-icon frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            </div>
+            <div class="dl-info">
+              <div class="dl-name">Small Frame</div>
+              <div class="dl-meta">150 x 230 mm</div>
+            </div>
+          </a>
+          <a href="Python/design/medium.svg" download="ArUco_Frame_Medium_210x290mm.svg" class="design-dl">
+            <div class="dl-icon frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            </div>
+            <div class="dl-info">
+              <div class="dl-name">Medium Frame</div>
+              <div class="dl-meta">210 x 290 mm</div>
+            </div>
+          </a>
+          <a href="Python/design/large.svg" download="ArUco_Frame_Large_270x350mm.svg" class="design-dl">
+            <div class="dl-icon frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            </div>
+            <div class="dl-info">
+              <div class="dl-name">Large Frame</div>
+              <div class="dl-meta">270 x 350 mm</div>
+            </div>
+          </a>
+          <a href="Python/design/Large Frame , Fully Laser Cut.svg" download="ArUco_Frame_Large_LaserCut.svg" class="design-dl">
+            <div class="dl-icon laser">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m9 18 3-6 3 6"/></svg>
+            </div>
+            <div class="dl-info">
+              <div class="dl-name">Large Laser Cut</div>
+              <div class="dl-meta">Laser cutting &amp; engraving</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <section class="credits-section">
+      <div class="credits-card">
+        <h3>Credits &amp; Links</h3>
+        <div class="credit-row">
+          <div class="credit-item">
+            <strong>Original ArUco frame pipeline</strong> by Quentin Bolsee &mdash; this web app is a browser-based port of his work.
+            <div class="credit-links">
+              <a href="https://gitlab.cba.mit.edu/quentinbolsee/aruco-frame" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                aruco-frame
+              </a>
+              <a href="https://gitlab.cba.mit.edu/quentinbolsee/open-frame-scan" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                open-frame-scan
+              </a>
+              <a href="https://gitlab.cba.mit.edu/quentinbolsee/urumi_vision" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                urumi_vision
+              </a>
+            </div>
+          </div>
+          <div class="credit-divider"></div>
+          <div class="credit-item">
+            <strong>Urumi Vision Web App</strong> &mdash; source code and documentation.
+            <div class="credit-links">
+              <a href="https://github.com/NB6RULES/Urumi-Vision-Web/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub Repo
+              </a>
+              <a href="https://fabacademy.org/2026/labs/kochi/students/nadec-biju/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Fab Academy Documentation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footnote -->

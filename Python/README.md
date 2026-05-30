@@ -74,8 +74,15 @@ Print or laser-cut the SVG file for your desired frame size, then photograph you
 
 ## Credits
 
-- ArUco frame extraction: Quentin Bolsee 2024
-- Skeleton tracing: Lingdong Huang 2020
+This Python pipeline is based on work by **Quentin Bolsee** (MIT CBA, 2024).
+
+| Project | Link |
+|---|---|
+| ArUco Frame | [gitlab.cba.mit.edu/quentinbolsee/aruco-frame](https://gitlab.cba.mit.edu/quentinbolsee/aruco-frame) |
+| Open Frame Scan | [gitlab.cba.mit.edu/quentinbolsee/open-frame-scan](https://gitlab.cba.mit.edu/quentinbolsee/open-frame-scan) |
+| Urumi Vision | [gitlab.cba.mit.edu/quentinbolsee/urumi_vision](https://gitlab.cba.mit.edu/quentinbolsee/urumi_vision) |
+
+Skeleton tracing algorithm by **Lingdong Huang** (2020).
 
 ## License
 
